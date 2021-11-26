@@ -1,1 +1,1 @@
-# Mod-le-de-Schelling-Devoir
+# Modele-de-Schelling-Devoir
