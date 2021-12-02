@@ -42,7 +42,7 @@ occupied by an individual are represented by a -1 or 1. We therefore obtain a st
 share an urban area.
 
 Initially, the agents are placed at random to simulate the mix of populations. We then add a rule of
-movement of agents: individuals will change boxes if in their immediate neighborhood, there is not at least one rate "n"
+movement of agents: they will change boxes if, in their immediate neighborhood, there is not at least "n"
 agents of the same type as them. When an agent is not satisfied, we generate a random place among the empty cells and we
 place the agent in this box; which frees up its old place. This operation is carried out until all the agents
 are satisfied, or until the defined maximum time is reached. Under these conditions, we obtain groupings of
@@ -77,14 +77,14 @@ we wanted to study whether the number of free sites played a role in the separat
 We varied the number of free cells from 15 to 24 and obtained the following results:
 
 \begin{figure}[!h]
-
-	\subfloat[Initial state]{{\includegraphics[width=6cm]{../resultats/worlds/Init/INS_0.5/initial_20.png} }}
-	\subfloat[Population segregation after simulation]{{\includegraphics[width=6cm]{../resultats/worlds/Sorted/INS_0.5/sorted_20.png} }}
-	\caption{Graphic representations of the initial and segregated states of Schelling's model with 24 free cells over 400 at an insatisfaction rate of 0.5}
+	\centering
+	\subfloat[Initial state]{{\includegraphics[width=6cm]{../resultats/worlds/Init/INS_0.5/initial_16.png} }}
+	\subfloat[Population segregation after simulation]{{\includegraphics[width=6cm]{../resultats/worlds/Sorted/INS_0.5/sorted_16.png} }}
+	\caption{Graphic representations of the initial and segregated states of Schelling's model with 16 free cells over 400 at an insatisfaction rate of 0.5}
 \end{figure}
 
 \begin{figure}[!h]
-
+	\centering
 	\subfloat[Initial state]{{\includegraphics[width=6cm]{../resultats/worlds/Init/INS_0.5/initial_24.png} }}
 	\subfloat[Population segregation after simulation]{{\includegraphics[width=6cm]{../resultats/worlds/Sorted/INS_0.5/sorted_24.png} }}
 	\caption{Graphic representations of the initial and segregated states of Schelling's model with 24 free cells over 400 at an insatisfaction rate of 0.5}
@@ -93,19 +93,49 @@ We varied the number of free cells from 15 to 24 and obtained the following resu
 
 \newpage
 
-On observe que dans les deux cas, les agents se sont séparés en deux groupes distincts en fonction de leur couleur avant la fin du temps imparti. Nous avons donc
-représenté le temps mit par nos agent pour arriver à une situation stable en fonction de la densité de population.
+It is observed that in both cases, the agents separated into two distinct groups according to their color. So we have
+represented the time taken by our agents to arrive at a stable situation according to the population density.
 
 \begin{figure}[!h]
-
-	\subfloat[Population segregation after simulation]{{\includegraphics[width=6cm]{../resultats/Curves/time_as_function_DENS_24_INS_0.5.png} }}
-	\caption{Graphic representations of the initial and segregated states of Schelling's model with 24 free cells over 400 at an insatisfaction rate of 0.5}
-
+	\centering
+	% \subfloat{{\includegraphics[width=10cm]{../resultats/Curves/INS_evolution/} }}
+	\caption{Graphic representations of the time spent by the agents to reach a stable state with a variable population density at an insatisfaction rate of 0.5}
 \end{figure}
+
+\newpage
+
+We can see that the convergence time towards a stable state is longer as the population density increases. This is due to the decrease in the number of
+free cells.
 
 \subsection{Insatisfaction rate}
 
+This time we have varied the dissatisfaction rate over a range of values from 0.1 to 0.9 with a step of 0.1. For these nine simulations, we obtained
+very different results from each other:
+
+\begin{figure}[!h]
+	\centering
+	\subfloat[Insatisfaction rate at 0.1]{{\includegraphics[width=6cm]{../resultats/worlds/Sorted/INS_0.1/sorted_20.png} }}
+	\subfloat[Insatisfaction rate at 0.2]{{\includegraphics[width=6cm]{../resultats/worlds/Sorted/INS_0.2/sorted_20.png} }}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\subfloat[Insatisfaction rate at 0.3]{{\includegraphics[width=6cm]{../resultats/worlds/Sorted/INS_0.3/sorted_20.png} }}
+	\subfloat[Insatisfaction rate at 0.4]{{\includegraphics[width=6cm]{../resultats/worlds/Sorted/INS_0.4/sorted_20.png} }}
+	\caption{Graphic representation of the organization of populations at the end of the simulations for a given dissatisfaction rate}
+\end{figure}
+
 \newpage
+
+It is clear that the tendency of the population to separate regardless of the rate of dissatisfaction. With a threshold when the rate is 0.3 (1/3) from which this
+segregation is becoming much more important. This rate, 1/3, is the rate found by Schelling for which it is impossible to obtain anything other than a state where
+populations are separated. This is called the "law of thermodynamics".
+
+\begin{figure}[!h]
+	\centering
+	\subfloat[Initial state]{{\includegraphics[width=6cm]{../resultats/worlds/Sorted/INS_0.3/sorted_20.png} }}
+	\caption{Graphic representations of the initial and segregated states of Schelling's model with 24 free cells over 400 at an insatisfaction rate of 0.5}
+\end{figure}
 
 \section{Conclusion}
 \end{document}

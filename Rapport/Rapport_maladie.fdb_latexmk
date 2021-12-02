@@ -1,10 +1,13 @@
 # Fdb version 3
-["pdflatex"] 1638324146 "c:/Users/benja/OneDrive/fac/L3/Modélisation_Scientifique/Modele-de-Schelling-Devoir/Rapport/Rapport_maladie.tex" "Rapport_maladie.pdf" "Rapport_maladie" 1638324147
-  "../resultats/Curves/time_as_function_DENS_24_INS_0.5.png" 1638308068 31618 ed83d00f4c0c03f66e6dcaef24465758 ""
-  "../resultats/worlds/Init/INS_0.5/initial_20.png" 1638308063 11471 39fc2c1a31d503cac6df548bcff75a5c ""
+["pdflatex"] 1638421753 "c:/Users/benja/OneDrive/fac/L3/Modélisation_Scientifique/Modele-de-Schelling-Devoir/Rapport/Rapport_maladie.tex" "Rapport_maladie.pdf" "Rapport_maladie" 1638421755
+  "../resultats/worlds/Init/INS_0.5/initial_16.png" 1638308058 11295 63bf7546813da19085eae8af2082d01b ""
   "../resultats/worlds/Init/INS_0.5/initial_24.png" 1638308067 11328 e58e97a621351d37d299bd30c0985ad2 ""
   "../resultats/worlds/Init/INS_0.6/initial_20.png" 1638308074 11445 4a2b714557a83726348d8ea7b705e334 ""
-  "../resultats/worlds/Sorted/INS_0.5/sorted_20.png" 1638308064 10919 5da70723471fd2ddfe42bbd7d2dc58b1 ""
+  "../resultats/worlds/Sorted/INS_0.1/sorted_20.png" 1638305673 11342 9bc52705b4ff6baa9e25efcb5bf91840 ""
+  "../resultats/worlds/Sorted/INS_0.2/sorted_20.png" 1638307235 11325 6194aac216c37418f54a02da0bf9caef ""
+  "../resultats/worlds/Sorted/INS_0.3/sorted_20.png" 1638308018 10595 95bdc98f30dfd7acf9662dfc66992a28 ""
+  "../resultats/worlds/Sorted/INS_0.4/sorted_20.png" 1638308049 10799 b49d8f56f16161fd310f00f7bf2455fe ""
+  "../resultats/worlds/Sorted/INS_0.5/sorted_16.png" 1638308059 11015 79ed4cb904031fff6598e08c54f29dc7 ""
   "../resultats/worlds/Sorted/INS_0.5/sorted_24.png" 1638308068 11104 a711754d4a809cb43d9deb3d2cbcb288 ""
   "../resultats/worlds/Sorted/INS_0.6/sorted_20.png" 1638308075 11061 842793826d915ce6785be2e8e01585cb ""
   "C:/Users/benja/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1638202246 9756927 4ad033e92c4ba5a0c3b7636c9d05c382 ""
@@ -62,10 +65,10 @@
   "D:/Programs/MiKTeX/tex/latex/lm/t1lmr.fd" 1256929440 1865 afbfccbe7fda9c2dc5078ad7c486bbed ""
   "D:/Programs/MiKTeX/tex/latex/ragged2e/ragged2e.sty" 1623005388 9204 2f0aef9fbe22be710da148fcc4b33ddf ""
   "D:/Programs/MiKTeX/tex/latex/subfig/subfig.sty" 1121299010 22049 9ef165ca6df8815c92e693146a376c92 ""
-  "Rapport_maladie.aux" 1638324147 2389 31719d60db842b24a2aa41ec53d7c20e "pdflatex"
-  "Rapport_maladie.tex" 1638324145 4677 956b76e3bd7f773371996ab191483221 ""
-  "Rapport_maladie.toc" 1638324147 419 34cc6aaf1bbfdb7b1066238b0a316758 "pdflatex"
-  "c:/Users/benja/OneDrive/fac/L3/Modélisation_Scientifique/Modele-de-Schelling-Devoir/Rapport/Rapport_maladie.tex" 1638324145 4677 956b76e3bd7f773371996ab191483221 ""
+  "Rapport_maladie.aux" 1638421755 3390 dbd6e59af71ff63c5c47a87e12b164e9 "pdflatex"
+  "Rapport_maladie.tex" 1638421752 6360 bc81775b94f75a44824659ed64c73c7b ""
+  "Rapport_maladie.toc" 1638421755 419 2a0c4b740167dc13419cd36db7983a29 "pdflatex"
+  "c:/Users/benja/OneDrive/fac/L3/Modélisation_Scientifique/Modele-de-Schelling-Devoir/Rapport/Rapport_maladie.tex" 1638421752 6360 bc81775b94f75a44824659ed64c73c7b ""
   (generated)
   "Rapport_maladie.aux"
   "Rapport_maladie.log"

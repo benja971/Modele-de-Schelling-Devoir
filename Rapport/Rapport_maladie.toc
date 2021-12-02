@@ -3,5 +3,5 @@
 \contentsline {section}{\numberline {B}Model presentation}{2}{}%
 \contentsline {section}{\numberline {C}Experiments, results}{4}{}%
 \contentsline {subsection}{\numberline {C.1}Population density}{4}{}%
-\contentsline {subsection}{\numberline {C.2}Insatisfaction rate}{5}{}%
-\contentsline {section}{\numberline {D}Conclusion}{6}{}%
+\contentsline {subsection}{\numberline {C.2}Insatisfaction rate}{6}{}%
+\contentsline {section}{\numberline {D}Conclusion}{7}{}%

@@ -1,12 +1,8 @@
 import numpy as np
 import random
 import matplotlib.pyplot as plt
-import os
-
-SIZE = 20
-# TAUX_INS = 0.35
-TIME = 50000
-# DENS = ((SIZE*SIZE)//2) - 23
+SIZE = 15
+TIME = 25000
 
 
 def insat(world,i,j):
@@ -39,79 +35,98 @@ def getInsat(world, ins):
                 L.append((i,j))
     return L
 
-for ins in np.arange(0.0, 1, 0.1):
-    print("insat : ", ins)
-    print("\n")
+def initWorld(world, DENS):
+    i=0
+    while i<DENS:
+        x = random.randrange(SIZE)
+        y = random.randrange(SIZE)
+        if world[x,y] == 0 :
+            world[x,y] = 1
+            i += 1
 
-    Etude01X = []
-    Etude01Y = []
-    for j in range(15, 25):
+    i=0
+    while i<DENS:
+        x = random.randrange(SIZE)
+        y = random.randrange(SIZE)
+        if world[x,y] == 0 :
+            world[x,y] = -1
+            i += 1
+            
+    return world
 
-        world = np.array([[0]*SIZE]*SIZE)
-        DENS = ((SIZE*SIZE)//2) - j
-        
-        print("DENS : ", DENS)
+def moove(world, ins, t):
+    insatL = list(getInsat(world, ins))
+    if len(insatL) > 0 :
+        x1,y1 = random.choice(insatL)
+        x2,y2 = random.choice(getOpen(world))
 
-        i=0
-        while i<DENS:
-            x = random.randrange(SIZE)
-            y = random.randrange(SIZE)
-            if world[x,y] == 0 :
-                world[x,y] = 1
-                i += 1
+        world[x2,y2] = world[x1,y1]
+        world[x1,y1] = 0
+        return -1
+    else : 
+        # print('break',t)        
+        return t
 
-        i=0
-        while i<DENS:
-            x = random.randrange(SIZE)
-            y = random.randrange(SIZE)
-            if world[x,y] == 0 :
-                world[x,y] = -1
-                i += 1
+def etude1(curves_etude1):
+    for ins in [0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2]:
+        curves_etude1[ins] = []
+        for libre in range(15, 26):
+            tmax = 0 
+            for test in range(5):
+                tmp = 0
+                DENS = ((SIZE*SIZE)//2) - libre
+                world = initWorld(np.array([[0]*SIZE]*SIZE), DENS)
+                for t in range(TIME):
+                    tmp = t
+                    if moove(world, ins, t) == t :
+                        break
+                tmax += tmp/5   
+            curves_etude1[ins].append(tmax)
 
-        init = plt.imshow(world, interpolation='none')
-        # plt.show()
+    # print(curves_etude1)
 
-        if not os.path.exists("./resultats/worlds/Init/INS_{}/initial_{}.png".format(ins, j)):
-            os.makedirs("./resultats/worlds/Init/INS_{}/".format(ins), exist_ok=True)
-
-        plt.savefig("./resultats/worlds/Init/INS_{}/initial_{}.png".format(ins, j))
-
+    for ins in curves_etude1.keys():
+        plt.plot([x for x in range(15, 26)], curves_etude1[ins])
+        plt.title("Time evolution as a function of the desatisfaction rate")
+        plt.xlabel("Desatisfaction rate")
+        plt.ylabel("Time")
+        plt.savefig("./resultats/Curves/POP_evolution/time_evolution_as_a_function_of_libre_INS_{}.png".format(ins))
         plt.close()
 
-        for t in range(TIME):
+def etude2(curves_etude2):
+    for pop in range(15, 26):
+        # INS_rates = np.arange(0.1, 0.9, 0.1)
+        INS_rates = [ 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2]
+        curves_etude2[pop] = []
 
-            # if t%1000 == 0 :
-                # print("{}/{}".format(t,TIME), end="      \r")
+        for ins in INS_rates:
+            tmax = 0
+            tmp = 0
+            print("INS_rate : {}".format(ins))
+            for test in range(5):
+                DENS = ((SIZE*SIZE)//2) - pop
+                world = initWorld(np.array([[0]*SIZE]*SIZE), DENS)
 
-            insatL = list(getInsat(world, ins))
-            if len(insatL) > 0 :
-                x1,y1 = random.choice(insatL)
-                x2,y2 = random.choice(getOpen(world))
+                for t in range(TIME):
+                    tmp = t
+                    if moove(world, ins, t) == t :
+                        break
 
-                world[x2,y2] = world[x1,y1]
-                world[x1,y1] = 0
-            else : 
-                print('break',t)        
-                break
+                tmax += tmp/5
+            curves_etude2[pop].append(tmax)
 
-        Etude01X.append(DENS)
-        Etude01Y.append(t)           
 
-        plt.imshow(world, interpolation='none')
-
-        if not os.path.exists("./resultats/worlds/Sorted/INS_{}/sorted_{}.png".format(ins, j)):
-            os.makedirs("./resultats/worlds/Sorted/INS_{}/".format(ins), exist_ok=True)
-
-        plt.savefig('./resultats/worlds/Sorted/INS_{}/sorted_{}.png'.format(ins, j))
+    for pop in curves_etude2.keys():
+        plt.plot(INS_rates, curves_etude2[pop])
+        plt.title("Time evolution as a function of the desatisfaction rate")
+        plt.xlabel("Desatisfaction rate")
+        plt.ylabel("Time")
+        plt.savefig("./resultats/Curves/INS_evolution/INS_evolution_as_function_of_time_at_DENS_{}_for_POP_{}.png".format(((SIZE*SIZE)//2) - pop, pop))
         plt.close()
 
-    print(Etude01X)
-    print(Etude01Y)
 
-    print("Courbe")
-    plt.plot(Etude01X,Etude01Y)
-    plt.title("Time evolution as function of density")
-    plt.xlabel("Density")
-    plt.ylabel("Time")
-    plt.savefig('./resultats/Curves/time_as_function_DENS_{}_INS_{}.png'.format(j, ins))
-    plt.close()
+if __name__ == "__main__":
+    curves_etude1 = {}
+    curves_etude2 = {}
+    etude1(curves_etude1)
+    etude2(curves_etude2)
