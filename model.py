@@ -67,8 +67,9 @@ def moove(world, ins, t):
         # print('break',t)        
         return t
 
-def etude1(curves_etude1):
+def etude1_POP(curves_etude1):
     for ins in [0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2]:
+        print("INS_rate : {}".format(ins))
         curves_etude1[ins] = []
         for libre in range(15, 26):
             tmax = 0 
@@ -86,15 +87,16 @@ def etude1(curves_etude1):
     # print(curves_etude1)
 
     for ins in curves_etude1.keys():
-        plt.plot([x for x in range(15, 26)], curves_etude1[ins])
-        plt.title("Time evolution as a function of the desatisfaction rate")
-        plt.xlabel("Desatisfaction rate")
+        plt.plot([(SIZE*SIZE) - x for x in range(15, 26)], curves_etude1[ins])
+        plt.title("Time evolution as a function of the number of agents")
+        plt.xlabel("Number of agents")
         plt.ylabel("Time")
         plt.savefig("./resultats/Curves/POP_evolution/time_evolution_as_a_function_of_libre_INS_{}.png".format(ins))
         plt.close()
 
-def etude2(curves_etude2):
+def etude2_INS(curves_etude2):
     for pop in range(15, 26):
+        print("POP : {}".format((SIZE*SIZE) - pop))
         # INS_rates = np.arange(0.1, 0.9, 0.1)
         INS_rates = [ 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2]
         curves_etude2[pop] = []
@@ -102,7 +104,6 @@ def etude2(curves_etude2):
         for ins in INS_rates:
             tmax = 0
             tmp = 0
-            print("INS_rate : {}".format(ins))
             for test in range(5):
                 DENS = ((SIZE*SIZE)//2) - pop
                 world = initWorld(np.array([[0]*SIZE]*SIZE), DENS)
@@ -118,15 +119,15 @@ def etude2(curves_etude2):
 
     for pop in curves_etude2.keys():
         plt.plot(INS_rates, curves_etude2[pop])
-        plt.title("Time evolution as a function of the desatisfaction rate")
-        plt.xlabel("Desatisfaction rate")
+        plt.title("Time evolution as a function of the dissatisfaction rate")
+        plt.xlabel("Dissatisfaction rate")
         plt.ylabel("Time")
-        plt.savefig("./resultats/Curves/INS_evolution/INS_evolution_as_function_of_time_at_DENS_{}_for_POP_{}.png".format(((SIZE*SIZE)//2) - pop, pop))
+        plt.savefig("./resultats/Curves/INS_evolution/INS_evolution_as_function_of_time_for_POP_{}.png".format((SIZE*SIZE) - pop))
         plt.close()
 
 
 if __name__ == "__main__":
     curves_etude1 = {}
     curves_etude2 = {}
-    etude1(curves_etude1)
-    etude2(curves_etude2)
+    etude1_POP(curves_etude1)
+    # etude2_INS(curves_etude2)
